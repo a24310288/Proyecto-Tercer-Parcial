@@ -13,6 +13,7 @@ public:
     void Jump ();
 
     sf::RectangleShape GetShape();
+    sf::Sprite GetSprite();
 
 private:
 
@@ -26,4 +27,6 @@ private:
     float groundY;
 
     sf::RectangleShape fighterShape;
+    sf::Texture texture;
+    sf::Sprite sprite;
 };

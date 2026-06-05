@@ -34,9 +34,16 @@ int main()
         {
             player.Jump();
         }
-         
+
         player.Update();
 
         window.clear();
 
         window.draw(player.GetShape());
+        window.draw(player.GetSprite());
+
+        window.display();
+    }
+
+    return 0;
+}
