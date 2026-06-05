@@ -7,12 +7,12 @@ class Fighter
 {
 public:
 
-    Fighter(float x, float y);
     Fighter(float x, float y, const std::string& imagePath);
 
     void MoveLeft();
     void MoveRight();
     void Jump ();
+    void Update ();
 
     sf::Sprite GetSprite();
 
