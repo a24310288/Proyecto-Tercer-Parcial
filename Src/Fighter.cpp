@@ -1,13 +1,10 @@
 #include "Fighter.hpp"
 
 Fighter::Fighter(float x, float y)
+Fighter::Fighter(float x, float y, const std::string& imagePath)
 {
-    speed = 5.0f;
    speed = 5.0f;
 
-    fighterShape.setSize(sf::Vector2f(50.f, 100.f));
-    fighterShape.setPosition(x, y);
-    fighterShape.setFillColor(sf::Color::Blue);
     velocityY = 0.0f;
     gravity = 0.5f;
 
@@ -16,6 +13,7 @@ Fighter::Fighter(float x, float y)
     groundY = y;
 
     texture.loadFromFile("assets/chabo mk.png");
+    texture.loadFromFile(imagePath);
 
     sprite.setTexture(texture);
 
@@ -52,15 +50,10 @@ void Fighter::Update()
 {
     velocityY += gravity;
 
-    fighterShape.move(0, velocityY);
     sprite.move({0, velocityY});
 
-    if (fighterShape.getPosition().y >= groundY)
     if (sprite.getPosition().y >= groundY)
     {
-        fighterShape.setPosition(
-            fighterShape.getPosition().x,
-            groundY
         sprite.setPosition(
             {sprite.getPosition().x, groundY}
         );
@@ -70,9 +63,7 @@ void Fighter::Update()
     }
 }
 
-sf::RectangleShape Fighter::GetShape()
 sf::Sprite Fighter::GetSprite()
 {
-    return fighterShape;
     return sprite;
 }

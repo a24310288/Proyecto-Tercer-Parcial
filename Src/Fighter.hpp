@@ -1,18 +1,19 @@
 #pragma once
 
 #include <SFML/Graphics.hpp>
+#include <string>
 
 class Fighter
 {
 public:
 
     Fighter(float x, float y);
+    Fighter(float x, float y, const std::string& imagePath);
 
     void MoveLeft();
     void MoveRight();
     void Jump ();
 
-    sf::RectangleShape GetShape();
     sf::Sprite GetSprite();
 
 private:
@@ -26,7 +27,6 @@ private:
 
     float groundY;
 
-    sf::RectangleShape fighterShape;
     sf::Texture texture;
     sf::Sprite sprite;
 };
